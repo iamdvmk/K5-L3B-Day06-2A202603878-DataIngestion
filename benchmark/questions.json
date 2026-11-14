@@ -1,0 +1,343 @@
+{
+  "benchmark_version": "1.1",
+  "changelog": [
+    "1.1 (trước khi chạy bất kỳ cấu hình nào): thêm bằng chứng hợp lệ ở Executive Summary cho q05 và q18, đánh dấu outside_filter=true (A/B không lọc có thể truy xuất trúng; C có filter sẽ không thấy)."
+  ],
+  "corpus": "wb-cmo-2026-10 (xem data/manifest.json)",
+  "page_convention": "gold_page = số trang PDF vật lý (9-66), không phải số in trên trang",
+  "split": {
+    "dev": 15,
+    "test": 5,
+    "rule": "Chia cố định trước khi chạy bất kỳ cấu hình nào; không sửa test sau khi xem kết quả."
+  },
+  "hit_rule": "Bằng chứng outside_filter chỉ tính hit cho cấu hình không áp filter. Hit khi chunk thuộc gold_source_id và trang thuộc {gold_page} ∪ {alternative_evidence[].gold_page}, và chứa đủ evidence_quote tương ứng (so khớp sau chuẩn hóa).",
+  "filter_rule": "filter là input giả định do người dùng/ngữ cảnh cung cấp trước khi truy xuất; chỉ cấu hình C áp dụng; câu filter=null thì C chạy không lọc.",
+  "selection_criterion_preregistered": "Chọn cấu hình theo dev: (1) Evidence Hit@3 cao nhất, (2) nếu bằng nhau: Hit@1, (3) nếu vẫn bằng: grounding trung bình, (4) cuối cùng: ít chunk/chi phí hơn. Chỉ xem test sau khi đã chốt.",
+  "leakage_risk": "Corpus chỉ có 1 tài liệu nên dev và test cùng nguồn; một số trang xuất hiện ở cả hai tập (43, 57). Câu test q18 dùng cùng mẫu câu 'sector's price index' như câu dev q11 — rủi ro chỉnh cấu hình khớp mẫu câu.",
+  "authoring": "Bản nháp do Claude soạn, evidence đã kiểm tra tự động là substring của text pypdf sau khi gộp khoảng trắng. Học viên cần tự đọc lại từng câu trên PDF và kiểm tra lại sau khi chạy normalize_text của mình.",
+  "questions": [
+    {
+      "id": "q01",
+      "split": "dev",
+      "type": "direct",
+      "question": "By how much are overall commodity prices projected to increase in 2026?",
+      "expected_answer": "About 23 percent (to their second-highest level since 2013).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 9,
+      "evidence_quote": "commodity prices are projected to increase by 23 percent in 2026",
+      "alternative_evidence": [
+        {
+          "gold_page": 12,
+          "evidence_quote": "commodity price index is forecast to increase by 23 percent in 2026"
+        },
+        {
+          "gold_page": 13,
+          "evidence_quote": "Global commodity prices are set to increase by an average of 23 percent in 2026"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q02",
+      "split": "dev",
+      "type": "direct",
+      "question": "How much did average January–September 2026 prices of gold, silver, and platinum rise?",
+      "expected_answer": "Gold +42%, silver +71%, platinum +110%.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 11,
+      "evidence_quote": "lifting average January to September prices for 2026 by 42, 71, and 110 percent, respectively",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q03",
+      "split": "dev",
+      "type": "direct",
+      "question": "How much is global oil supply expected to fall in 2026?",
+      "expected_answer": "By 5.5 mb/d (5.2 percent).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 22,
+      "evidence_quote": "which is expected to decline by 5.5 mb/d (5.2 percent) in 2026",
+      "alternative_evidence": [
+        {
+          "gold_page": 13,
+          "evidence_quote": "Global oil supply is projected to fall by 5.5 mb/d (5.2 percent) in 2026"
+        },
+        {
+          "gold_page": 25,
+          "evidence_quote": "Global oil supply is projected to fall by 5.5 mb/d (5.2 percent) in 2026"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q04",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "What record level did the European diesel premium over Brent crude hit in September 2026?",
+      "expected_answer": "A record monthly average of about $91/bbl.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 22,
+      "evidence_quote": "The premium of European diesel over Brent crude reached a record monthly average of about $91/bbl in September",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q05",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "How much are average prices in this sector forecast to change in 2027?",
+      "expected_answer": "Energy prices are forecast to decrease by about 12 percent in 2027 (Brent retreating to $79/bbl).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 22,
+      "evidence_quote": "Average energy prices are forecast to decrease by about 12 percent in 2027",
+      "alternative_evidence": [
+        {
+          "gold_page": 12,
+          "evidence_quote": "energy prices are set to increase by 32 percent (y/y) this year, then retreat by 12 percent in 2027",
+          "outside_filter": true
+        }
+      ],
+      "filter": {
+        "section": "energy"
+      },
+      "note": "Câu mơ hồ nếu không có filter: fertilizers (-12%), tổng chỉ số (-7%), food (+7%) cũng có dự báo 2027. Filter là ngữ cảnh người dùng (bàn năng lượng) cung cấp trước."
+    },
+    {
+      "id": "q06",
+      "split": "dev",
+      "type": "direct",
+      "question": "How much is global natural gas production projected to decline in 2026?",
+      "expected_answer": "By 0.8 percent (35 bcm).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 29,
+      "evidence_quote": "Global natural gas production is projected to decline by 0.8 percent (35 bcm) in 2026",
+      "alternative_evidence": [
+        {
+          "gold_page": 28,
+          "evidence_quote": "while production is expected to fall by 0.8 percent"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q07",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "Which country's coal production is set to reach an all-time high in 2026, and at what level?",
+      "expected_answer": "India, at an annual record of 1,090 mmt.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 31,
+      "evidence_quote": "an increase in India of 1.2 percent (13 mmt), taking output to an annual record of 1,090 mmt",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q08",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "By roughly how much did Ukraine's wheat shipments abroad drop in August 2026 compared with a year earlier?",
+      "expected_answer": "Nearly 70 percent lower.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 33,
+      "evidence_quote": "Ukraine’s wheat exports in August 2026 were nearly 70 percent lower than a year earlier",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q09",
+      "split": "dev",
+      "type": "direct",
+      "question": "How many people experienced severe food insecurity worldwide in 2025?",
+      "expected_answer": "About 779 million (down from 803 million in 2024).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 39,
+      "evidence_quote": "The number of people experiencing severe food insecurity worldwide fell to about 779 million in 2025",
+      "alternative_evidence": [
+        {
+          "gold_page": 18,
+          "evidence_quote": "People experiencing severe food insecurity worldwide numbered 779 million in 2025"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q10",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "Before the current episode, how many El Niño events since 1950 reached very strong intensity?",
+      "expected_answer": "Four (1982–83, 1991–92, 1997–98, 2015–16); the current one is expected to be the fifth.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 43,
+      "evidence_quote": "Since 1950, there have been 27 El Niño episodes, four of which were very strong",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q11",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "Despite a slight decline expected in 2027, by how much is the sector's price index projected to exceed its 2021 peak?",
+      "expected_answer": "By 16 percent (metals and minerals price index).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 49,
+      "evidence_quote": "with the metals and minerals price index projected to exceed its 2021 peak by 16 percent",
+      "alternative_evidence": [],
+      "filter": {
+        "section": "metals_and_minerals"
+      },
+      "note": "Không nêu tên ngành trong câu hỏi; filter do ngữ cảnh cung cấp trước."
+    },
+    {
+      "id": "q12",
+      "split": "dev",
+      "type": "conditional",
+      "question": "What Qatar-related development is cited as an upside risk to urea prices?",
+      "expected_answer": "Continued conflict could lead to an extension of Qatar's force majeure (imposed in March) on contracts to sell LNG and related products, including urea.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 48,
+      "evidence_quote": "continued conflict could lead to an extension of Qatar’s force majeure, imposed in March, on contracts to sell LNG and related products, including urea",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q13",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "What is the maximum annual aluminum smelting capacity officially allowed in China?",
+      "expected_answer": "45 million tons per year.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 49,
+      "evidence_quote": "operating close to its official smelting capacity ceiling of 45 million tons per year",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q14",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "Roughly what fraction of commodity price volatility comes from commodity-specific factors rather than shocks in other markets?",
+      "expected_answer": "Roughly two-thirds is commodity-specific; about one-third comes from shocks in other commodity markets.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 56,
+      "evidence_quote": "roughly two-thirds is commodity-specific, while about one-third is associated with shocks in other commodity markets",
+      "alternative_evidence": [
+        {
+          "gold_page": 58,
+          "evidence_quote": "cross-market transmission accounts for about one-third of total price volatility, while roughly two-thirds remains commodity specific"
+        },
+        {
+          "gold_page": 64,
+          "evidence_quote": "about one-third of price volatility has been associated with shocks in other commodity markets, while roughly two-thirds remained commodity specific"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q15",
+      "split": "dev",
+      "type": "direct",
+      "question": "Which individual commodities act as important bridges across commodity groups in the connectedness analysis?",
+      "expected_answer": "Copper, maize, oil, and silver.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 57,
+      "evidence_quote": "Copper, maize, oil, and silver stand out as important bridges across commodity groups",
+      "alternative_evidence": [
+        {
+          "gold_page": 56,
+          "evidence_quote": "copper, maize, oil, and silver stand out as important bridges across groups"
+        },
+        {
+          "gold_page": 60,
+          "evidence_quote": "copper, maize, oil, and silver occupy especially important positions"
+        },
+        {
+          "gold_page": 64,
+          "evidence_quote": "copper, maize, oil, and silver stand out as important bridges across commodity groups"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q16",
+      "split": "test",
+      "type": "conditional",
+      "question": "In the adverse scenario, how far above the 2027 baseline forecast would Brent oil prices be?",
+      "expected_answer": "Brent would average $105/bbl in 2027, about 33 percent above the $79/bbl baseline.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 27,
+      "evidence_quote": "about 33 percent above the $79/bbl baseline forecast",
+      "alternative_evidence": [
+        {
+          "gold_page": 16,
+          "evidence_quote": "33 percent above the 2027 baseline"
+        }
+      ],
+      "filter": null
+    },
+    {
+      "id": "q17",
+      "split": "test",
+      "type": "conditional",
+      "question": "Why is El Niño expected to have a limited impact on wheat and maize prices?",
+      "expected_answer": "Their exports originate mainly in less exposed countries, and ample stocks should limit the impact.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 43,
+      "evidence_quote": "Wheat and maize exports, by contrast, originate mainly in less exposed countries, which, together with ample stocks, should limit the impact on their prices",
+      "alternative_evidence": [],
+      "filter": null
+    },
+    {
+      "id": "q18",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "How much is the sector's price index projected to rise in 2026 (y/y)?",
+      "expected_answer": "About 14 percent (fertilizer price index).",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 47,
+      "evidence_quote": "the index is projected to rise by about 14 percent in 2026 (y/y)",
+      "alternative_evidence": [
+        {
+          "gold_page": 14,
+          "evidence_quote": "Average fertilizer prices are anticipated to rise by 14 percent (y/y) in 2026",
+          "outside_filter": true
+        }
+      ],
+      "filter": {
+        "section": "fertilizers"
+      },
+      "note": "Mơ hồ nếu không có filter: tổng chỉ số +23%, energy +32%, metals +25%, grain +14%."
+    },
+    {
+      "id": "q19",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "Which minerals led the price declines in 2026Q3, and by how much did they fall?",
+      "expected_answer": "Cobalt fell 25 percent (q/q) and lithium 13 percent.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 53,
+      "evidence_quote": "led by cobalt, which fell by 25 percent (q/q), and lithium, which declined by 13 percent",
+      "alternative_evidence": [],
+      "filter": {
+        "section": "metals_and_minerals"
+      }
+    },
+    {
+      "id": "q20",
+      "split": "test",
+      "type": "paraphrase",
+      "question": "On what share of trading days does silver rank among the three biggest net transmitters of volatility?",
+      "expected_answer": "Almost 60 percent of trading days.",
+      "gold_source_id": "wb-cmo-2026-10",
+      "gold_page": 57,
+      "evidence_quote": "silver ranks among the three largest net-transmitting commodities on almost 60 percent of trading days",
+      "alternative_evidence": [
+        {
+          "gold_page": 60,
+          "evidence_quote": "and silver in almost 60 percent"
+        }
+      ],
+      "filter": null
+    }
+  ]
+}

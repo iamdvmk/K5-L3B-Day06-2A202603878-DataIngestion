@@ -1,0 +1,62 @@
+[
+  {
+    "page": 1,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 2,
+    "status": "empty",
+    "detail": "no text layer / blank"
+  },
+  {
+    "page": 3,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 4,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 5,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 6,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 7,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 8,
+    "status": "empty",
+    "detail": "no text layer / blank"
+  },
+  {
+    "page": 67,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 68,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 69,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  },
+  {
+    "page": 70,
+    "status": "excluded",
+    "detail": "not in counted pages"
+  }
+]

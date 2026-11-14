@@ -1,0 +1,93 @@
+{
+  "started_at_utc": "2026-11-14T05:07:07+00:00",
+  "split": "dev",
+  "top_k": 3,
+  "strategies": {
+    "A": {
+      "chunking": "fixed_size",
+      "params": {
+        "size": 500,
+        "overlap": 50
+      },
+      "filter": false
+    },
+    "B": {
+      "chunking": "by_paragraph",
+      "params": {
+        "max_size": 1000
+      },
+      "filter": false
+    },
+    "C": {
+      "chunking": "by_paragraph",
+      "params": {
+        "max_size": 1000
+      },
+      "filter": true
+    }
+  },
+  "noise_line_filter": "chunking.is_noise_line (dùng chung cho A/B/C)",
+  "embedding": {
+    "provider": "openai",
+    "model": "text-embedding-3-small",
+    "dimensions": 1536,
+    "requests": 25,
+    "total_tokens": 104560,
+    "api_seconds": 11.24,
+    "est_cost_usd": 0.002091
+  },
+  "query_embedding_tokens": 271,
+  "ingest": {
+    "A": {
+      "inserted": 555,
+      "updated": 0,
+      "unchanged": 0,
+      "deleted": 0,
+      "count_in_db": 555,
+      "embed_seconds": 4.79,
+      "embed_tokens": 54482,
+      "upsert_seconds": 1.15,
+      "vectors_reused_from": null
+    },
+    "B": {
+      "inserted": 324,
+      "updated": 0,
+      "unchanged": 0,
+      "deleted": 0,
+      "count_in_db": 324,
+      "embed_seconds": 2.96,
+      "embed_tokens": 49807,
+      "upsert_seconds": 0.72,
+      "vectors_reused_from": null
+    },
+    "C": {
+      "inserted": 324,
+      "updated": 0,
+      "unchanged": 0,
+      "deleted": 0,
+      "count_in_db": 324,
+      "embed_seconds": 0.0,
+      "embed_tokens": 0,
+      "upsert_seconds": 0.64,
+      "vectors_reused_from": "B"
+    }
+  },
+  "timing_seconds": {
+    "read_pdf": 4.24,
+    "retrieve_and_eval": 5.08
+  },
+  "store": {
+    "postgresql": "16.12 (Debian 16.12-1.pgdg12+1)",
+    "pgvector": "0.8.1",
+    "table": "chunks",
+    "search": "exact, cosine (<=>)"
+  },
+  "benchmark_version": "1.1",
+  "versions": {
+    "python": "3.14.10",
+    "pypdf": "6.21.4",
+    "fonttools": "4.68.0",
+    "openai": "3.51.0",
+    "psycopg": "3.3.8"
+  }
+}

@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size (ký tự),500,50,"document_id, source, page, printed_page, section",không,"OpenAI text-embedding-3-small (1536d), pgvector cosine exact","Cửa sổ cố định dễ cắt ngang câu, làm vỡ evidence và giảm coherence so với B",9/15,11/15,2/5,3/5,"555 chunk; 5/6 lần trượt vẫn lấy đúng trang gold nhưng evidence bị tách qua 2 chunk (q07, q09, q11, q12, q19); coherence 0.70/2"
+B,by_paragraph (gom đoạn),1000 (tối đa),0,"document_id, source, page, printed_page, section",không,"OpenAI text-embedding-3-small (1536d), pgvector cosine exact","Chunk theo đoạn giữ trọn ý, tăng Evidence Hit@3 và coherence so với A",10/15,14/15,3/5,4/5,"324 chunk; trượt q05 (dev), q18 (test): câu mập mờ phạm vi, top-3 lạc sang executive_summary/agriculture; coherence 1.30/2"
+C,by_paragraph (giống B),1000 (tối đa),0,"document_id, source, page, printed_page, section","section (chỉ khi câu hỏi có filter; 4/20 câu)","OpenAI text-embedding-3-small (1536d), pgvector cosine exact — dùng lại vector của B","Lọc section giúp các câu mơ hồ phạm vi ngành; câu không có filter cho kết quả y hệt B",12/15,15/15,4/5,5/5,"Chọn theo tiêu chí đăng ký trước (Hit@3 dev). Khác B chỉ ở 4 câu filter; filter tuân thủ 2/2 (test); grounding 2.00/2"

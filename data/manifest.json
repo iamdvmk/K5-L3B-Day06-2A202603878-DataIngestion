@@ -1,0 +1,635 @@
+{
+  "manifest_version": "1.0",
+  "sources": [
+    {
+      "source_id": "wb-cmo-2026-10",
+      "title": "Commodity Markets Outlook, October 2026",
+      "publisher": "World Bank (Prospects Group)",
+      "citation": "World Bank. 2026. Commodity Markets Outlook, October 2026. Washington, DC: World Bank. License: Creative Commons Attribution CC BY 3.0 IGO",
+      "source_path_or_url": {
+        "local_path": "data/raw/CMO-October-2026.pdf",
+        "repository": "https://openknowledge.worldbank.org/",
+        "handle_url": "TODO: dán link handle/publication chính xác của ấn bản October 2026 trên OKR"
+      },
+      "license_or_permission": "CC BY 3.0 IGO (https://creativecommons.org/licenses/by/3.0/igo/), xem PDF trang 4; được sao chép, phân phối, chỉnh sửa kể cả mục đích thương mại nếu ghi nguồn. Bảng/hình của bên thứ ba có thể có quyền riêng.",
+      "accessed_at": "2026-11-14",
+      "version_snapshot": {
+        "edition": "October 2026",
+        "data_cutoff_date": "2026-10-14 (theo PDF trang 4)",
+        "pdf_creation_date": "2026-10-23",
+        "pdf_mod_date": "2026-10-27",
+        "file_size_bytes": 2693887,
+        "sha256": "981338d84c7fd0d6d2c8ce504d5339c5ef721b4961c5a5b90945f40666714c22"
+      },
+      "language": "en",
+      "document_type": "report",
+      "physical_pages": 70,
+      "counted_pages": {
+        "range": "9-66",
+        "count": 58,
+        "pdf_pages": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66
+        ]
+      },
+      "page_counting_rule": "Đếm theo số trang PDF vật lý (bắt đầu từ 1), không theo số in trên trang (số in = trang PDF - 8). Chỉ tính trang có nội dung phân tích: loại bìa, trang trống, trang tiêu đề, bản quyền, mục lục, lời cảm ơn (1-8), References (67-69), bìa sau (70). Trang bảng dự báo (20-21) và phụ lục phương pháp (65-66) vẫn tính vì là nội dung báo cáo.",
+      "sections_in_counted_pages": {
+        "executive_summary": {
+          "pdf_pages": "9-21",
+          "count": 13
+        },
+        "energy": {
+          "pdf_pages": "22-32",
+          "count": 11
+        },
+        "agriculture": {
+          "pdf_pages": "33-46",
+          "count": 14
+        },
+        "fertilizers": {
+          "pdf_pages": "47-48",
+          "count": 2
+        },
+        "metals_and_minerals": {
+          "pdf_pages": "49-55",
+          "count": 7
+        },
+        "special_focus": {
+          "pdf_pages": "56-66",
+          "count": 11
+        }
+      },
+      "char_count_note": "raw_chars = số ký tự text trích xuất bằng pypdf 6.17.0, CHƯA chuẩn hóa. Cập nhật thêm normalized_chars sau khi chạy normalize_text.",
+      "total_raw_chars_counted_pages": 258841,
+      "ocr": "Không cần; PDF có text layer.",
+      "pages": [
+        {
+          "pdf_page": 1,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 68,
+          "exclude_reason": "cover"
+        },
+        {
+          "pdf_page": 2,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 0,
+          "exclude_reason": "blank"
+        },
+        {
+          "pdf_page": 3,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 68,
+          "exclude_reason": "title page"
+        },
+        {
+          "pdf_page": 4,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 3694,
+          "exclude_reason": "copyright/license"
+        },
+        {
+          "pdf_page": 5,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 3086,
+          "exclude_reason": "table of contents (figures)"
+        },
+        {
+          "pdf_page": 6,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 472,
+          "exclude_reason": "table of contents (figures, cont.)"
+        },
+        {
+          "pdf_page": 7,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 2014,
+          "exclude_reason": "acknowledgments"
+        },
+        {
+          "pdf_page": 8,
+          "printed_page": null,
+          "section": "front_matter",
+          "included": false,
+          "raw_chars": 0,
+          "exclude_reason": "blank"
+        },
+        {
+          "pdf_page": 9,
+          "printed_page": 1,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4481
+        },
+        {
+          "pdf_page": 10,
+          "printed_page": 2,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4881
+        },
+        {
+          "pdf_page": 11,
+          "printed_page": 3,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 5381
+        },
+        {
+          "pdf_page": 12,
+          "printed_page": 4,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 5425
+        },
+        {
+          "pdf_page": 13,
+          "printed_page": 5,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 5486
+        },
+        {
+          "pdf_page": 14,
+          "printed_page": 6,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4314
+        },
+        {
+          "pdf_page": 15,
+          "printed_page": 7,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4169
+        },
+        {
+          "pdf_page": 16,
+          "printed_page": 8,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4992
+        },
+        {
+          "pdf_page": 17,
+          "printed_page": 9,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 4119
+        },
+        {
+          "pdf_page": 18,
+          "printed_page": 10,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 5096
+        },
+        {
+          "pdf_page": 19,
+          "printed_page": 11,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 3000
+        },
+        {
+          "pdf_page": 20,
+          "printed_page": 12,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 3113,
+          "note": "price forecast table; table layout extracted poorly"
+        },
+        {
+          "pdf_page": 21,
+          "printed_page": 13,
+          "section": "executive_summary",
+          "included": true,
+          "raw_chars": 3201,
+          "note": "price forecast table; table layout extracted poorly"
+        },
+        {
+          "pdf_page": 22,
+          "printed_page": 14,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4343
+        },
+        {
+          "pdf_page": 23,
+          "printed_page": 15,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 5386
+        },
+        {
+          "pdf_page": 24,
+          "printed_page": 16,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 5190
+        },
+        {
+          "pdf_page": 25,
+          "printed_page": 17,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4303
+        },
+        {
+          "pdf_page": 26,
+          "printed_page": 18,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4600
+        },
+        {
+          "pdf_page": 27,
+          "printed_page": 19,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4195
+        },
+        {
+          "pdf_page": 28,
+          "printed_page": 20,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 5311
+        },
+        {
+          "pdf_page": 29,
+          "printed_page": 21,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4073
+        },
+        {
+          "pdf_page": 30,
+          "printed_page": 22,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 3801
+        },
+        {
+          "pdf_page": 31,
+          "printed_page": 23,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 5032
+        },
+        {
+          "pdf_page": 32,
+          "printed_page": 24,
+          "section": "energy",
+          "included": true,
+          "raw_chars": 4082
+        },
+        {
+          "pdf_page": 33,
+          "printed_page": 25,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4289
+        },
+        {
+          "pdf_page": 34,
+          "printed_page": 26,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4680
+        },
+        {
+          "pdf_page": 35,
+          "printed_page": 27,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 5032
+        },
+        {
+          "pdf_page": 36,
+          "printed_page": 28,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4374
+        },
+        {
+          "pdf_page": 37,
+          "printed_page": 29,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4358
+        },
+        {
+          "pdf_page": 38,
+          "printed_page": 30,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 5570
+        },
+        {
+          "pdf_page": 39,
+          "printed_page": 31,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4650
+        },
+        {
+          "pdf_page": 40,
+          "printed_page": 32,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4656
+        },
+        {
+          "pdf_page": 41,
+          "printed_page": 33,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4436
+        },
+        {
+          "pdf_page": 42,
+          "printed_page": 34,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 2119
+        },
+        {
+          "pdf_page": 43,
+          "printed_page": 35,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 5003,
+          "note": "Box B1 (El Niño) inside agriculture chapter"
+        },
+        {
+          "pdf_page": 44,
+          "printed_page": 36,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 4828,
+          "note": "Box B1 (El Niño)"
+        },
+        {
+          "pdf_page": 45,
+          "printed_page": 37,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 5054,
+          "note": "Box B1 (El Niño)"
+        },
+        {
+          "pdf_page": 46,
+          "printed_page": 38,
+          "section": "agriculture",
+          "included": true,
+          "raw_chars": 3482,
+          "note": "Box B1 (El Niño)"
+        },
+        {
+          "pdf_page": 47,
+          "printed_page": 39,
+          "section": "fertilizers",
+          "included": true,
+          "raw_chars": 4276
+        },
+        {
+          "pdf_page": 48,
+          "printed_page": 40,
+          "section": "fertilizers",
+          "included": true,
+          "raw_chars": 4356
+        },
+        {
+          "pdf_page": 49,
+          "printed_page": 41,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4358
+        },
+        {
+          "pdf_page": 50,
+          "printed_page": 42,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4839
+        },
+        {
+          "pdf_page": 51,
+          "printed_page": 43,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4441
+        },
+        {
+          "pdf_page": 52,
+          "printed_page": 44,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4147
+        },
+        {
+          "pdf_page": 53,
+          "printed_page": 45,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 5281
+        },
+        {
+          "pdf_page": 54,
+          "printed_page": 46,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4871
+        },
+        {
+          "pdf_page": 55,
+          "printed_page": 47,
+          "section": "metals_and_minerals",
+          "included": true,
+          "raw_chars": 4199
+        },
+        {
+          "pdf_page": 56,
+          "printed_page": 48,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 3842
+        },
+        {
+          "pdf_page": 57,
+          "printed_page": 49,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4109
+        },
+        {
+          "pdf_page": 58,
+          "printed_page": 50,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 5172
+        },
+        {
+          "pdf_page": 59,
+          "printed_page": 51,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4304
+        },
+        {
+          "pdf_page": 60,
+          "printed_page": 52,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4848
+        },
+        {
+          "pdf_page": 61,
+          "printed_page": 53,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4521
+        },
+        {
+          "pdf_page": 62,
+          "printed_page": 54,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4972
+        },
+        {
+          "pdf_page": 63,
+          "printed_page": 55,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4594
+        },
+        {
+          "pdf_page": 64,
+          "printed_page": 56,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 4889
+        },
+        {
+          "pdf_page": 65,
+          "printed_page": 57,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 3678,
+          "note": "Appendix SF.1 methodology"
+        },
+        {
+          "pdf_page": 66,
+          "printed_page": 58,
+          "section": "special_focus",
+          "included": true,
+          "raw_chars": 2639,
+          "note": "Appendix SF.1 methodology"
+        },
+        {
+          "pdf_page": 67,
+          "printed_page": 59,
+          "section": "references",
+          "included": false,
+          "raw_chars": 3652,
+          "exclude_reason": "references only"
+        },
+        {
+          "pdf_page": 68,
+          "printed_page": 60,
+          "section": "references",
+          "included": false,
+          "raw_chars": 3459,
+          "exclude_reason": "references only"
+        },
+        {
+          "pdf_page": 69,
+          "printed_page": 61,
+          "section": "references",
+          "included": false,
+          "raw_chars": 2595,
+          "exclude_reason": "references only"
+        },
+        {
+          "pdf_page": 70,
+          "printed_page": null,
+          "section": "back_matter",
+          "included": false,
+          "raw_chars": 2111,
+          "exclude_reason": "back cover (blurb)"
+        }
+      ]
+    }
+  ]
+}

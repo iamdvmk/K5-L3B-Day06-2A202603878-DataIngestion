@@ -1,0 +1,26 @@
+{
+  "A": {
+    "chunks": 555,
+    "chars_total": 264410,
+    "chars_min": 79,
+    "chars_median": 500,
+    "chars_mean": 476.4,
+    "chars_max": 500
+  },
+  "B": {
+    "chunks": 324,
+    "chars_total": 239462,
+    "chars_min": 86,
+    "chars_median": 813,
+    "chars_mean": 739.1,
+    "chars_max": 1126
+  },
+  "C": {
+    "chunks": 324,
+    "chars_total": 239462,
+    "chars_min": 86,
+    "chars_median": 813,
+    "chars_mean": 739.1,
+    "chars_max": 1126
+  }
+}

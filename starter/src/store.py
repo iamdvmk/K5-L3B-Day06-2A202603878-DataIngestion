@@ -165,3 +165,11 @@ class PgVectorStore:
             else:
                 cur.execute(f"SELECT count(*) FROM {self.table}")
             return cur.fetchone()[0]
+
+    def server_info(self) -> dict[str, str]:
+        """Phiên bản PostgreSQL và pgvector (ghi vào run_config để tái lập)."""
+        with self._connect() as conn, conn.cursor() as cur:
+            cur.execute("SELECT current_setting('server_version'), "
+                        "(SELECT extversion FROM pg_extension WHERE extname = 'vector')")
+            pg, vec = cur.fetchone()
+        return {"postgresql": pg, "pgvector": vec, "table": self.table, "search": "exact, cosine (<=>)"}
